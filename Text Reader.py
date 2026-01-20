@@ -1,18 +1,18 @@
 def get_input(filename):
-    file=open(f"{filename}")
-    file_list=file.readlines()
+    '''Function that reads a file and returns n(number of activities), time constraint, cost constraint and activities list with their respective name, time, cost and enjoyment values'''
+    file=open(f"{filename}") #opens file
+    file_list=file.readlines() #reads all lines in file
     n=int(file_list[0].strip()) #removes "\n" from the first line and converts to int and stores under variable n
-    time, cost=file_list[1].split() 
-    time_max=int(time)
-    cost_max=int(cost)
+    time, cost=file_list[1].split() #splits 2nd line and assigns to variables time and cost
+    time_max=int(time) #converts time to int
+    cost_max=int(cost) #converts cost to int
     activities=[] #creates list of activities that is blank
     for line in file_list[2:]:
         line.strip()
         name, time, cost, enjoyment=line.split()
         activities.append({"name": name, "time":time, "cost": cost, "enjoyment": enjoyment}) #adds dictionary to list of activities
-    print(activities)
-    file.close()
-    return n, time_max, cost_max, activities
+    file.close() #closes file
+    return n, time_max, cost_max, activities 
 
 #print(get_input("Inputs/input_10.txt"))
-get_input("Inputs/input_10.txt")
+print(get_input("Inputs/input_10.txt"))

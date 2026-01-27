@@ -1,5 +1,5 @@
 #Dynamic Programming part of the coursework (0/1 Knapsack)
-
+from Text_Reader.py import get_input
 #main function!
 def dp(number_of_activities, time, budget, activities, mode):
 

@@ -95,7 +95,6 @@ def run_budget_constraint(number_of_activities, time, budget, activities):
     return dp(number_of_activities, time, budget, activities, mode = "budget")
 
 
-tuple_ = function load thing....
-#run_and_print_results_from_dp(tuple_)
+do the file load function bit here...
 
 

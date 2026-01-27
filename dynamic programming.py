@@ -94,34 +94,6 @@ def run_time_constraint(number_of_activities, time, budget, activities):
 def run_budget_constraint(number_of_activities, time, budget, activities):
     return dp(number_of_activities, time, budget, activities, mode = "budget")
 
-#function to run everything and print the results
-def run_and_print_results_from_dp(tuple_): 
-
-    number_of_activities, time, budget, activities = tuple_
-
-    #for time constraint
-    time_chosen, time_enjoyment, time_used, time_cost = run_time_constraint(
-        number_of_activities, time, budget, activities
-    )
-    #print results
-    print("TIME CONSTRAINT RESULT")
-    print("Chosen activities:", [a["name"] for a in time_chosen])
-    print("Total enjoyment:", time_enjoyment)
-    print("Total time:", time_used)
-    print("Total cost:", time_cost)
-
-    print("")
-
-    #for budget constraint
-    budget_chosen, budget_enjoyment, budget_time, budget_cost = run_budget_constraint(
-        number_of_activities, time, budget, activities
-    )
-    #print results
-    print("BUDGET CONSTRAINT RESULT")
-    print("Chosen activities:", [a["name"] for a in budget_chosen])
-    print("Total enjoyment:", budget_enjoyment)
-    print("Total time:", budget_time)
-    print("Total cost:", budget_cost)
 
 tuple_ = function load thing....
 #run_and_print_results_from_dp(tuple_)

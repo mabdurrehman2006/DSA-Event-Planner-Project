@@ -10,9 +10,10 @@ def get_input(filename):
     for line in file_list[2:]: #iterates through the list from the 3rd element(index 2) to the end
         line.strip() #removes "\n" from the line
         name, time, cost, enjoyment=line.split() #splits line and assigns elements to variables name, time, cost and enjoyment
-        activities.append({"name": name, "time":time, "cost": cost, "enjoyment": enjoyment}) #adds dictionary to list of activities
+        #activities.append({"name": name, "time":time, "cost": cost, "enjoyment": enjoyment}) #adds dictionary to list of activities
+        activities.append([name, int(time), int(cost), int(enjoyment)]) #adds list with name, time, cost and enjoyment to list of activities
     file.close() #closes file
     return n, time_max, cost_max, activities
 
 #print(get_input("Inputs/input_10.txt"))
-print(get_input("Inputs/input_10.txt"))
+

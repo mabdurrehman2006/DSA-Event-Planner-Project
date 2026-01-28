@@ -1,15 +1,16 @@
 #Dynamic Programming part of the coursework (0/1 Knapsack)
-
+from Text_Reader import get_input
 #main function!
 def dp(number_of_activities, time, budget, activities, mode):
 
     #this part here decides which variable we will choose to be the constraint
     if mode == "time":
         capacity = time
-        weight_key = "time"
+        weight_key = 1 #cost is the 2nd element in list so index 1
     else:
         capacity = budget
-        weight_key = "cost"
+        weight_key = 2 #cost is the 3rd element in list so index 2
+    enjoyment_index=3 #enjoyment is the 4th element in the list so index 3
 
     #now we need to create the dp table using a 2D grid
     dp_grid = []
@@ -34,7 +35,7 @@ def dp(number_of_activities, time, budget, activities, mode):
     for activities_considered in range(1, number_of_activities + 1):
         activity_i = activities[activities_considered - 1] 
         weight = activity_i[weight_key] #this part is where it will take either time or cost as the constraint
-        value = activity_i["enjoyment"]
+        value = activity_i[enjoyment_index]
     
         #ok here is the dp filling part
         for current_capacity_limit in range(capacity + 1):
@@ -69,7 +70,7 @@ def dp(number_of_activities, time, budget, activities, mode):
             current_capacity_limit = current_capacity_limit - activity_i[weight_key]
         activities_considered = activities_considered - 1  
     
-    chosen_activities.reverse() 
+    chosen_activities.reverse()
 
     
     #now finally this part will compute the totals for each variable
@@ -78,9 +79,9 @@ def dp(number_of_activities, time, budget, activities, mode):
     total_cost = 0
 
     for activity in chosen_activities:
-        total_enjoyment = total_enjoyment + activity["enjoyment"]
-        total_time = total_time + activity["time"]
-        total_cost = total_cost + activity["cost"]
+        total_enjoyment = total_enjoyment + activity[enjoyment_index]
+        total_time = total_time + activity[1]
+        total_cost = total_cost + activity[2]
 
     #now we will just return the activities and totals! and DONE!
     return chosen_activities, total_enjoyment, total_time, total_cost
@@ -94,7 +95,7 @@ def run_time_constraint(number_of_activities, time, budget, activities):
 def run_budget_constraint(number_of_activities, time, budget, activities):
     return dp(number_of_activities, time, budget, activities, mode = "budget")
 
-
-do the file load function bit here...
+n, time, cost, activities=get_input("Inputs/input_10.txt")
+run_budget_constraint(n, time, cost, activities)
 
 

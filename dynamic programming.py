@@ -95,7 +95,42 @@ def run_time_constraint(number_of_activities, time, budget, activities):
 def run_budget_constraint(number_of_activities, time, budget, activities):
     return dp(number_of_activities, time, budget, activities, mode = "budget")
 
-n, time, cost, activities=get_input("Inputs/input_10.txt")
-run_budget_constraint(n, time, cost, activities)
+#function that prints the dp output
+#exec_time is not defined as this is what comes from the testing of the program I believe
+def print_dp_output(chosen_activities, total_enjoyment, total_time, total_cost, exec_time):
+    print("--- DYNAMIC PROGRAMMING ALGORITHM ---")
+    print("Selected Activities:")
+
+    for activity in chosen_activities:
+        print(
+            f" - {activity[0]} "
+            f"({activity[1]} hours, £{activity[2]}, enjoyment {activity[3]})"
+        )
+
+    print(f"Total Enjoyment: {total_enjoyment}")
+    print(f"Total Time Used: {total_time} hours")
+    print(f"Total Cost: £{total_cost}")
+    print(f"Execution Time: {exec_time} seconds")
+
+
+#n, time, cost, activities=get_input("Inputs/input_10.txt")
+#run_budget_constraint(n, time, cost, activities)
+
+
+
+
+n, time, cost, activities = get_input("Inputs/input_10.txt")
+chosen_activities, total_enjoyment, total_time, total_cost = run_budget_constraint(
+    n, time, cost, activities
+)
+
+
+print_dp_output(
+    chosen_activities,
+    total_enjoyment,
+    total_time,
+    total_cost,
+    exec_time=float(),
+)
 
 

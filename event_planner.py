@@ -271,23 +271,33 @@ print_dp_output(
 
 # Example usage:
 if __name__ == "__main__":
+
+    #checks if input file name was provided
     if len(sys.argv)<2:
         print("Use the following format: python event_planner.py <input_file_path>")
         sys.exit(1)
     filename=sys.argv[1]
+
+    #gets variables from input file
     n, time_max, cost_max, activities = get_input(filename)
+
+    #runs dp algorithm and measures time taken
     start=time1.perf_counter()
     chosen_activities, total_enjoyment, total_time, total_cost = run_budget_constraint(
         n, time_max, cost_max, activities
     )
     end=time1.perf_counter()
     dp_time=end-start
+
+    #prints results in the format in the specification
     print(f"""========================================\n
 EVENT PLANNER - RESULTS\n
 ========================================\n
 Input File: {filename}\n
 Available Time: {time_max} hours\n
 Available Budget: £{cost_max}\n""")
+    
+    #prints dp results
     print_dp_output(
     chosen_activities,
     total_enjoyment,
@@ -296,15 +306,19 @@ Available Budget: £{cost_max}\n""")
     dp_time,
     )
 
+    #makes inputs compatible with bf algorithm as Aidan programmed it to use diffrent input format than Lorenzo's dp algorithm
     activities_objects=[]
     for x in activities:
         act=Activity(name=x[0], time=x[1], cost=x[2], enjoyment=x[3])
         activities_objects.append(act)
 
+    #runs dp algorithm and measures time taken
     start=time1.perf_counter()
     chosen_activities_bf, total_enjoyment_bf, total_time_bf, total_cost_bf = brute_force_optimal_plan(activities_objects, max_time=time_max, max_budget=cost_max)
     end=time1.perf_counter()
     bf_time=end-start
+
+    #prints bf results
     print_bf_output(
     chosen_activities_bf,
     total_enjoyment_bf,

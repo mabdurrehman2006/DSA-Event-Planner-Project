@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from typing import List, Optional, Dict, Any, Tuple
 import time as time1
+import sys
 
 def get_input(filename):
     '''Function that reads a file and returns n(number of activities), time constraint, cost constraint and activities list with their respective name, time, cost and enjoyment values'''
@@ -270,14 +271,23 @@ print_dp_output(
 
 # Example usage:
 if __name__ == "__main__":
-    
-    n, time, cost, activities = get_input("Inputs/input_10.txt")
+    if len(sys.argv)<2:
+        print("Use the following format: python event_planner.py <input_file_path>")
+        sys.exit(1)
+    filename=sys.argv[1]
+    n, time_max, cost_max, activities = get_input(filename)
     start=time1.perf_counter()
     chosen_activities, total_enjoyment, total_time, total_cost = run_budget_constraint(
-        n, time, cost, activities
+        n, time_max, cost_max, activities
     )
     end=time1.perf_counter()
     dp_time=end-start
+    print(f"""========================================\n
+EVENT PLANNER - RESULTS\n
+========================================\n
+Input File: {filename}\n
+Available Time: {time_max} hours\n
+Available Budget: £{cost_max}\n""")
     print_dp_output(
     chosen_activities,
     total_enjoyment,
@@ -292,7 +302,7 @@ if __name__ == "__main__":
         activities_objects.append(act)
 
     start=time1.perf_counter()
-    chosen_activities_bf, total_enjoyment_bf, total_time_bf, total_cost_bf = brute_force_optimal_plan(activities_objects, max_time=time, max_budget=cost)
+    chosen_activities_bf, total_enjoyment_bf, total_time_bf, total_cost_bf = brute_force_optimal_plan(activities_objects, max_time=time_max, max_budget=cost_max)
     end=time1.perf_counter()
     bf_time=end-start
     print_bf_output(

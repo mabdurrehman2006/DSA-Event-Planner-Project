@@ -1,0 +1,41 @@
+Testing file: input_10.txt
+--- DYNAMIC PROGRAMMING ALGORITHM ---
+Selected Activities:
+ - Welcome-Dinner (2 hours, £40, enjoyment 75)
+ - Movie-Night (3 hours, £35, enjoyment 80)
+ - Art-Class (2 hours, £60, enjoyment 90)
+ - Karaoke (2 hours, £45, enjoyment 85)
+ - Bowling (3 hours, £70, enjoyment 105)
+Total Enjoyment: 435
+Total Time Used: 12 hours
+Total Cost: £250
+Execution Time: 0.004446625003765803 seconds
+
+Testing file: input_15.txt
+--- DYNAMIC PROGRAMMING ALGORITHM ---
+Selected Activities:
+ - Language-Performance-1 (2 hours, £36, enjoyment 97)
+ - Wellness-Meeting-4 (4 hours, £11, enjoyment 58)
+ - Gaming-Lecture-8 (4 hours, £102, enjoyment 184)
+ - Activity-10 (4 hours, £107, enjoyment 150)
+ - Activity-12 (3 hours, £28, enjoyment 114)
+Total Enjoyment: 603
+Total Time Used: 17 hours
+Total Cost: £284
+Execution Time: 0.03511258299840847 seconds
+
+Testing file: input_20.txt
+--- DYNAMIC PROGRAMMING ALGORITHM ---
+Selected Activities:
+ - Language-Performance-1 (2 hours, £36, enjoyment 97)
+ - Wellness-Meeting-4 (4 hours, £11, enjoyment 58)
+ - Gaming-Lecture-8 (4 hours, £102, enjoyment 184)
+ - Activity-10 (4 hours, £107, enjoyment 150)
+ - Activity-12 (3 hours, £28, enjoyment 114)
+ - Tech-Presentation-15 (2 hours, £26, enjoyment 47)
+ - Career-Social-19 (3 hours, £33, enjoyment 47)
+ - Activity-20 (1 hours, £50, enjoyment 79)
+Total Enjoyment: 776
+Total Time Used: 23 hours
+Total Cost: £393
+Execution Time: 0.06708029100263957 seconds

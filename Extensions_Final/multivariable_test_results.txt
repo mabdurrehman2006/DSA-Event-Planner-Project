@@ -1,0 +1,196 @@
+========================================
+
+EVENT PLANNER - RESULTS
+
+========================================
+
+Input File: /Users/abdurrehman/Documents/University/Year 1/ECM 1414 Data Structures and Algorithms/DSA-Event-Planner-Project/Extensions/input_10.txt
+
+Available Time: 12 hours
+
+Available Budget: £250
+
+--- DYNAMIC PROGRAMMING ALGORITHM ---
+Selected Activities:
+ - Welcome-Dinner (2 hours, £40, enjoyment 75)
+ - Movie-Night (3 hours, £35, enjoyment 80)
+ - Art-Class (2 hours, £60, enjoyment 90)
+ - Karaoke (2 hours, £45, enjoyment 85)
+ - Bowling (3 hours, £70, enjoyment 105)
+Total Enjoyment: 435
+Total Time Used: 12 hours
+Total Cost: £250
+Execution Time: 0.0028832079842686653 seconds
+--- BRUTE FORCE ALGORITHM ---
+Selected Activities:
+ - Welcome-Dinner (2 hours, £40, enjoyment 75)
+ - Movie-Night (3 hours, £35, enjoyment 80)
+ - Art-Class (2 hours, £60, enjoyment 90)
+ - Karaoke (2 hours, £45, enjoyment 85)
+ - Bowling (3 hours, £70, enjoyment 105)
+Total Enjoyment: 435
+Total Time Used: 12 hours
+Total Cost: £250.0
+Execution Time: 0.0004902920918539166 seconds
+
+
+
+
+========================================
+
+EVENT PLANNER - RESULTS
+
+========================================
+
+Input File: /Users/abdurrehman/Documents/University/Year 1/ECM 1414 Data Structures and Algorithms/DSA-Event-Planner-Project/Extensions/input_15.txt
+
+Available Time: 50 hours
+
+Available Budget: £300
+
+--- DYNAMIC PROGRAMMING ALGORITHM ---
+Selected Activities:
+ - Language-Performance-1 (2 hours, £36, enjoyment 97)
+ - Wellness-Meeting-4 (4 hours, £11, enjoyment 58)
+ - Gaming-Lecture-8 (4 hours, £102, enjoyment 184)
+ - Activity-10 (4 hours, £107, enjoyment 150)
+ - Activity-12 (3 hours, £28, enjoyment 114)
+Total Enjoyment: 603
+Total Time Used: 17 hours
+Total Cost: £284
+Execution Time: 0.020264375023543835 seconds
+--- BRUTE FORCE ALGORITHM ---
+Selected Activities:
+ - Language-Performance-1 (2 hours, £36, enjoyment 97)
+ - Wellness-Meeting-4 (4 hours, £11, enjoyment 58)
+ - Gaming-Lecture-8 (4 hours, £102, enjoyment 184)
+ - Activity-10 (4 hours, £107, enjoyment 150)
+ - Activity-12 (3 hours, £28, enjoyment 114)
+Total Enjoyment: 603
+Total Time Used: 17 hours
+Total Cost: £284.0
+Execution Time: 0.021815708954818547 seconds
+
+
+
+
+
+========================================
+
+EVENT PLANNER - RESULTS
+
+========================================
+
+Input File: /Users/abdurrehman/Documents/University/Year 1/ECM 1414 Data Structures and Algorithms/DSA-Event-Planner-Project/Extensions/input_20.txt
+
+Available Time: 50 hours
+
+Available Budget: £400
+
+--- DYNAMIC PROGRAMMING ALGORITHM ---
+Selected Activities:
+ - Language-Performance-1 (2 hours, £36, enjoyment 97)
+ - Wellness-Meeting-4 (4 hours, £11, enjoyment 58)
+ - Gaming-Lecture-8 (4 hours, £102, enjoyment 184)
+ - Activity-10 (4 hours, £107, enjoyment 150)
+ - Activity-12 (3 hours, £28, enjoyment 114)
+ - Tech-Presentation-15 (2 hours, £26, enjoyment 47)
+ - Career-Social-19 (3 hours, £33, enjoyment 47)
+ - Activity-20 (1 hours, £50, enjoyment 79)
+Total Enjoyment: 776
+Total Time Used: 23 hours
+Total Cost: £393
+Execution Time: 0.03974262496922165 seconds
+--- BRUTE FORCE ALGORITHM ---
+Selected Activities:
+ - Language-Performance-1 (2 hours, £36, enjoyment 97)
+ - Wellness-Meeting-4 (4 hours, £11, enjoyment 58)
+ - Gaming-Lecture-8 (4 hours, £102, enjoyment 184)
+ - Activity-10 (4 hours, £107, enjoyment 150)
+ - Activity-12 (3 hours, £28, enjoyment 114)
+ - Tech-Presentation-15 (2 hours, £26, enjoyment 47)
+ - Career-Social-19 (3 hours, £33, enjoyment 47)
+ - Activity-20 (1 hours, £50, enjoyment 79)
+Total Enjoyment: 776
+Total Time Used: 23 hours
+Total Cost: £393.0
+Execution Time: 0.9763109169434756 seconds
+
+
+
+========================================
+
+EVENT PLANNER - RESULTS
+
+========================================
+
+Input File: /Users/abdurrehman/Documents/University/Year 1/ECM 1414 Data Structures and Algorithms/DSA-Event-Planner-Project/Extensions/input_25.txt
+
+Available Time: 50 hours
+
+Available Budget: £500
+
+--- DYNAMIC PROGRAMMING ALGORITHM ---
+Selected Activities:
+ - Language-Performance-1 (2 hours, £36, enjoyment 97)
+ - Wellness-Meeting-4 (4 hours, £11, enjoyment 58)
+ - Gaming-Lecture-8 (4 hours, £102, enjoyment 184)
+ - Activity-10 (4 hours, £107, enjoyment 150)
+ - Literature-Training-11 (2 hours, £63, enjoyment 84)
+ - Activity-12 (3 hours, £28, enjoyment 114)
+ - Tech-Presentation-15 (2 hours, £26, enjoyment 47)
+ - Activity-20 (1 hours, £50, enjoyment 79)
+ - Innovation-Workshop-22 (3 hours, £39, enjoyment 114)
+ - Activity-25 (3 hours, £37, enjoyment 124)
+Total Enjoyment: 1051
+Total Time Used: 28 hours
+Total Cost: £499
+Execution Time: 0.06063545809593052 seconds
+--- BRUTE FORCE ALGORITHM ---
+Selected Activities:
+ - Language-Performance-1 (2 hours, £36, enjoyment 97)
+ - Wellness-Meeting-4 (4 hours, £11, enjoyment 58)
+ - Gaming-Lecture-8 (4 hours, £102, enjoyment 184)
+ - Activity-10 (4 hours, £107, enjoyment 150)
+ - Literature-Training-11 (2 hours, £63, enjoyment 84)
+ - Activity-12 (3 hours, £28, enjoyment 114)
+ - Tech-Presentation-15 (2 hours, £26, enjoyment 47)
+ - Activity-20 (1 hours, £50, enjoyment 79)
+ - Innovation-Workshop-22 (3 hours, £39, enjoyment 114)
+ - Activity-25 (3 hours, £37, enjoyment 124)
+Total Enjoyment: 1051
+Total Time Used: 28 hours
+Total Cost: £499.0
+Execution Time: 37.16963412496261 seconds
+
+
+
+
+
+Input File: /Users/abdurrehman/Documents/University/Year 1/ECM 1414 Data Structures and Algorithms/DSA-Event-Planner-Project/Extensions/input_30.txt
+
+Available Time: 50 hours
+
+Available Budget: £600
+
+--- DYNAMIC PROGRAMMING ALGORITHM ---
+Selected Activities:
+ - Language-Performance-1 (2 hours, £36, enjoyment 97)
+ - Wellness-Meeting-4 (4 hours, £11, enjoyment 58)
+ - Gaming-Lecture-8 (4 hours, £102, enjoyment 184)
+ - Activity-12 (3 hours, £28, enjoyment 114)
+ - Tech-Presentation-15 (2 hours, £26, enjoyment 47)
+ - Career-Social-19 (3 hours, £33, enjoyment 47)
+ - Environment-Sport-21 (3 hours, £129, enjoyment 185)
+ - Innovation-Workshop-22 (3 hours, £39, enjoyment 114)
+ - Nature-Music-24 (1 hours, £77, enjoyment 110)
+ - Activity-25 (3 hours, £37, enjoyment 124)
+ - Gaming-Food-26 (3 hours, £49, enjoyment 101)
+ - Career-Walk-29 (5 hours, £31, enjoyment 131)
+Total Enjoyment: 1312
+Total Time Used: 36 hours
+Total Cost: £598
+Execution Time: 0.09111433301586658 seconds
+
+
+Brute Force took too long for n=30

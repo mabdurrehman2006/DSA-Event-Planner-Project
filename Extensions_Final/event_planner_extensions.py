@@ -20,77 +20,82 @@ def get_input(filename):
     file.close() #closes file
     return n, time_max, cost_max, activities
 
+#for this, i have copied lots of code from the original program but have altered things
+#now instead of having a 2d grid for the dp algorithm, it will now be 3d so that both time and budget can be used at the same time to calculate the results
 
-#Dynamic Programming part of the coursework (0/1 Knapsack)
-#from Text_Reader import get_input
+
 #main function!
-def dp(number_of_activities, time, budget, activities, mode):
+def dp(number_of_activities, time, budget, activities):
 
-    #this part here decides which variable we will choose to be the constraint
-    if mode == "time":
-        capacity = time
-        weight_key = 1 #cost is the 2nd element in list so index 1
-    else:
-        capacity = budget
-        weight_key = 2 #cost is the 3rd element in list so index 2
-    enjoyment_index=3 #enjoyment is the 4th element in the list so index 3
+    enjoyment_index = 3 #enjoyment is the 4th element in the list so index 3
 
-    #now we need to create the dp table using a 2D grid
+    #now we need to create the dp table using a 3D grid (activities, time and budget)
     dp_grid = []
     
     for activities_considered in range(number_of_activities + 1):
-        row = []
-        for column in range(capacity + 1):
-            row.append(0)
-        dp_grid.append(row)
+        time_layer = []
+        for current_time_limit in range(time + 1):
+            row = []
+            for current_budget_limit in range(budget + 1):
+                row.append(0)
+            time_layer.append(row)
+        dp_grid.append(time_layer)
 
     #now we pretty much do the exact same thing but for a keep table now so we can choose the activities that are the best
     keep_grid = []
 
     for activities_considered in range(number_of_activities + 1):
-        row = []
-        for column in range(capacity + 1):
-            row.append(False)
-        keep_grid.append(row)
+        time_layer = []
+        for current_time_limit in range(time + 1):
+            row = []
+            for current_budget_limit in range(budget + 1):
+                row.append(False)
+            time_layer.append(row)
+        keep_grid.append(time_layer)
 
     
     #here is now where the main algorithm logic will be. we are going to here fill the dp table
     for activities_considered in range(1, number_of_activities + 1):
         activity_i = activities[activities_considered - 1] 
-        weight = activity_i[weight_key] #this part is where it will take either time or cost as the constraint
+        
+        time_weight = activity_i[1] #time is the 2nd element in list so index 1
+        cost_weight = activity_i[2] #cost is the 3rd element in list so index 2
         value = activity_i[enjoyment_index]
     
         #ok here is the dp filling part
-        for current_capacity_limit in range(capacity + 1):
+        for current_time_limit in range(time + 1):
+            for current_budget_limit in range(budget + 1):
             
-            #option 1 is to skip the activity
-            skip = dp_grid[activities_considered - 1][current_capacity_limit]
+                #option 1 is to skip the activity
+                skip = dp_grid[activities_considered - 1][current_time_limit][current_budget_limit]
 
-            #option 2 is to take the activity if it fits
-            if weight <= current_capacity_limit:
-                take = dp_grid[activities_considered - 1][current_capacity_limit - weight] + value
-            else:
-                take = - 1 #if it doesn't work
+                #option 2 is to take the activity if it fits
+                if time_weight <= current_time_limit and cost_weight <= current_budget_limit:
+                    take = dp_grid[activities_considered - 1][current_time_limit - time_weight][current_budget_limit - cost_weight] + value
+                else:
+                    take = - 1 #if it doesn't work
 
-            #this part will compare whether taking it or skipping it was the better decision
-            if take > skip:
-                dp_grid[activities_considered][current_capacity_limit] = take
-                keep_grid[activities_considered][current_capacity_limit] = True
-            else:
-                dp_grid[activities_considered][current_capacity_limit] = skip
-                keep_grid[activities_considered][current_capacity_limit] = False
+                #this part will compare whether taking it or skipping it was the better decision
+                if take > skip:
+                    dp_grid[activities_considered][current_time_limit][current_budget_limit] = take
+                    keep_grid[activities_considered][current_time_limit][current_budget_limit] = True
+                else:
+                    dp_grid[activities_considered][current_time_limit][current_budget_limit] = skip
+                    keep_grid[activities_considered][current_time_limit][current_budget_limit] = False
 
 
     #this part here is the backtracking step. it will reconstruct the set of activities that produce max enjoyment calculated by the DP table
     chosen_activities = []
-    current_capacity_limit = capacity
+    current_time_limit = time
+    current_budget_limit = budget
 
     activities_considered = number_of_activities
     while activities_considered > 0:
-        if keep_grid[activities_considered][current_capacity_limit] == True:
+        if keep_grid[activities_considered][current_time_limit][current_budget_limit] == True:
             activity_i = activities[activities_considered - 1]
             chosen_activities.append(activity_i)
-            current_capacity_limit = current_capacity_limit - activity_i[weight_key]
+            current_time_limit = current_time_limit - activity_i[1]
+            current_budget_limit = current_budget_limit - activity_i[2]
         activities_considered = activities_considered - 1  
     
     chosen_activities.reverse()
@@ -110,13 +115,9 @@ def dp(number_of_activities, time, budget, activities, mode):
     return chosen_activities, total_enjoyment, total_time, total_cost
 
 
-#function for running the time constraint
-def run_time_constraint(number_of_activities, time, budget, activities):
-    return dp(number_of_activities, time, budget, activities, mode = "time")
-
-#function for running the budget constraint
-def run_budget_constraint(number_of_activities, time, budget, activities):
-    return dp(number_of_activities, time, budget, activities, mode = "budget")
+#function for running the time and budget constraint at the same time now
+def run_time_and_budget_constraint(number_of_activities, time, budget, activities):
+    return dp(number_of_activities, time, budget, activities)
 
 #function that prints the dp output
 #exec_time is not defined as this is what comes from the testing of the program I believe
@@ -245,7 +246,7 @@ if __name__ == "__main__":
 
     #runs dp algorithm and measures time taken
     start=time1.perf_counter()
-    chosen_activities, total_enjoyment, total_time, total_cost = run_budget_constraint(
+    chosen_activities, total_enjoyment, total_time, total_cost = run_time_and_budget_constraint(
         n, time_max, cost_max, activities
     )
     end=time1.perf_counter()
@@ -274,9 +275,9 @@ Available Budget: £{cost_max}\n""")
         act=Activity(name=x[0], time=x[1], cost=x[2], enjoyment=x[3])
         activities_objects.append(act)
 
-    #runs dp algorithm and measures time taken
+    #runs bf algorithm and measures time taken
     start=time1.perf_counter()
-    chosen_activities_bf, total_enjoyment_bf, total_time_bf, total_cost_bf = brute_force_optimal_plan(activities_objects, max_time=None, max_budget=cost_max)
+    chosen_activities_bf, total_enjoyment_bf, total_time_bf, total_cost_bf = brute_force_optimal_plan(activities_objects, max_time=time_max, max_budget=cost_max)
     end=time1.perf_counter()
     bf_time=end-start
 
